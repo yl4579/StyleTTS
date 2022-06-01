@@ -9,7 +9,7 @@ Paper: [https://arxiv.org/abs/2107.10394](https://arxiv.org/abs/2205.15439)
 Audio samples: [https://styletts.github.io/](https://styletts.github.io/)
 
 ## Trianing
-# Under construction
+### Under construction
 
 ## Inference
-# Under construction
+### Under construction
