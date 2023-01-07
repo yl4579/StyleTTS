@@ -39,7 +39,7 @@ loss_params:
     lambda_mel: 5. # mel reconstruction loss (1st & 2nd stage)
     lambda_adv: 1. # adversarial loss (1st & 2nd stage)
     lambda_reg: 1. # adversarial regularization loss (1st & 2nd stage)
-    lambda_fm: 1. # feature matching loss (1st & 2nd stage)
+    lambda_fm: 0.1 # feature matching loss (1st & 2nd stage)
     
     lambda_mono: 1. # monotonic alignment loss (1st stage, TMA)
     lambda_s2s: 1. # sequence-to-sequence loss (1st stage, TMA)
