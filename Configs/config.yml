@@ -1,0 +1,54 @@
+log_dir: "Models/LJSpeech"
+first_stage_path: "first_stage.pth"
+save_freq: 2
+log_interval: 10
+device: "cuda"
+multigpu: false
+epochs_1st: 200 # number of epochs for first stage training
+epochs_2nd: 100 # number of peochs for second stage training
+batch_size: 32
+pretrained_model: ""
+second_stage_load_pretrained: false # set to true if the pre-trained model is for 2nd stage
+load_only_params: false # set to true if do not want to load epoch numbers and optimizer parameters
+
+train_data: "Data/train_list.txt"
+val_data: "Data/val_list.txt"
+
+F0_path: "Utils/JDC/bst.t7"
+ASR_config: "Utils/ASR/config.yml"
+ASR_path: "Utils/ASR/epoch_00080.pth"
+
+preprocess_params:
+  sr: 24000
+  spect_params:
+    n_fft: 2048
+    win_length: 1200
+    hop_length: 300
+
+model_params:
+  hidden_dim: 512
+  n_token: 178
+  style_dim: 128
+  n_layer: 3
+  dim_in: 64
+  max_conv_dim: 512
+  n_mels: 80
+  dropout: 0.2
+
+loss_params:
+    lambda_mel: 5. # mel reconstruction loss (1st & 2nd stage)
+    lambda_adv: 1. # adversarial loss (1st & 2nd stage)
+    lambda_reg: 1. # adversarial regularization loss (1st & 2nd stage)
+    lambda_fm: 1. # feature matching loss (1st & 2nd stage)
+    
+    lambda_mono: 1. # monotonic alignment loss (1st stage, TMA)
+    lambda_s2s: 1. # sequence-to-sequence loss (1st stage, TMA)
+    TMA_start_epoch: 20 # TMA starting epoch (1st stage)
+    TMA_end_epoch: -20 # TMA ending epoch (1st stage)
+
+    lambda_F0: 0.1 # F0 reconstruction loss (2nd stage)
+    lambda_norm: 1. # norm reconstruction loss (2nd stage)
+    lambda_dur: 1. # duration loss (2nd stage)
+
+optimizer_params:
+  lr: 0.0001
