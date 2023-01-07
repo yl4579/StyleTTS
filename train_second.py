@@ -78,7 +78,7 @@ def main(config_path):
 
     batch_size = config.get('batch_size', 10)
     device = config.get('device', 'cpu')
-    epochs = config.get('epochs', 200)
+    epochs = config.get('epochs_2nd', 100)
     save_freq = config.get('save_freq', 2)
     train_path = config.get('train_data', None)
     val_path = config.get('val_data', None)
