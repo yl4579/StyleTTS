@@ -32,7 +32,7 @@ python train_second.py --config_path ./Configs/config.yml
 ```
 You can run both consecutively and it will train both the first and second stage. The model will be saved in the format "epoch_1st_%05d.pth" and "epoch_2nd_%05d.pth". Checkpoints and Tensorboard logs will be saved at `log_dir`. 
 
-The data list format needs to be `filename.wav|transcription`, see [val_list.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list.txt) as an example. 
+The data list format needs to be `filename.wav|transcription|anything`, see [val_list.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list.txt) as an example. `anything` can be anything, but for simplicity, it is better to be speaker id, though this information is not used during training. 
 
 ## Inference
 
