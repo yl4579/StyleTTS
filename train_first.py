@@ -128,6 +128,7 @@ def main(config_path):
 
     loss_params = Munch(config['loss_params'])
     TMA_epoch = loss_params.TMA_epoch
+    TMA_CEloss = loss_params.TMA_CEloss
 
     for epoch in range(start_epoch, epochs):
         running_loss = 0
@@ -159,7 +160,10 @@ def main(config_path):
                 
             s2s_attn_feat.masked_fill_(attn_mask, -float("inf"))
             
-            s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
+            if TMA_CEloss:
+                s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
+            else:
+                s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the text dimension
 
             # get monotonic version 
             with torch.no_grad():
@@ -224,9 +228,13 @@ def main(config_path):
                     loss_s2s += F.cross_entropy(_s2s_pred[:_text_length], _text_input[:_text_length])
                 loss_s2s /= texts.size(0)
                 
-                # cross entropy loss for monotonic alignment
-                log_attn = torch.nan_to_num(F.log_softmax(s2s_attn_feat, dim=1)) # along the mel dimension
-                loss_mono = -(torch.mul(log_attn, s2s_attn_mono).sum(axis=[-1, -2]) / input_lengths).mean()
+                if TMA_CEloss:
+                    # cross entropy loss for monotonic alignment
+                    log_attn = torch.nan_to_num(F.log_softmax(s2s_attn_feat, dim=1)) # along the mel dimension
+                    loss_mono = -(torch.mul(log_attn, s2s_attn_mono).sum(axis=[-1, -2]) / input_lengths).mean()
+                else:
+                    # L1 loss for monotonic alignment
+                    loss_mono = F.l1_loss(s2s_attn, s2s_attn_mono) * 10
             else:
                 loss_s2s = 0
                 loss_mono = 0
