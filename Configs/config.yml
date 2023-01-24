@@ -45,6 +45,9 @@ loss_params:
     lambda_s2s: 1. # sequence-to-sequence loss (1st stage, TMA)
     TMA_epoch: 20 # TMA starting epoch (1st stage)
 
+    # https://github.com/yl4579/StyleTTS/issues/7
+    TMA_CEloss: false # whether to use cross-entropy (CE) loss for TMA
+
     lambda_F0: 1. # F0 reconstruction loss (2nd stage)
     lambda_norm: 1. # norm reconstruction loss (2nd stage)
     lambda_dur: 1. # duration loss (2nd stage)
