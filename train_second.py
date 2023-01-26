@@ -150,6 +150,7 @@ def main(config_path):
 
     loss_params = Munch(config['loss_params'])
     TMA_epoch = loss_params.TMA_epoch
+    TMA_CEloss = loss_params.TMA_CEloss
 
     for epoch in range(epochs):
         running_loss = 0
