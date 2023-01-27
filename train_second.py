@@ -186,7 +186,7 @@ def main(config_path):
                 if TMA_CEloss:
                     s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
                 else:
-                    s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the mel dimension
+                    s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the text dimension
 
                 mask_ST = mask_from_lens(s2s_attn, input_lengths, mel_input_length // (2 ** model.text_aligner.n_down))
                 s2s_attn_mono = maximum_path(s2s_attn, mask_ST)
@@ -246,7 +246,7 @@ def main(config_path):
                 if TMA_CEloss:
                     s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
                 else:
-                    s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the mel dimension
+                    s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the text dimension
 
                 mask_ST = mask_from_lens(s2s_attn, input_lengths, mel_input_length // (2 ** model.text_aligner.n_down))
                 s2s_attn_mono = maximum_path(s2s_attn, mask_ST)
@@ -390,7 +390,7 @@ def main(config_path):
                     if TMA_CEloss:
                         s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
                     else:
-                        s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the mel dimension
+                        s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the text dimension
 
                     mask_ST = mask_from_lens(s2s_attn, input_lengths, mel_input_length // (2 ** model.text_aligner.n_down))
                     s2s_attn_mono = maximum_path(s2s_attn, mask_ST)
