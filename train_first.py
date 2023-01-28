@@ -310,7 +310,10 @@ def main(config_path):
 
                     s2s_attn_feat.masked_fill_(attn_mask, -float("inf"))
 
-                    s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
+                    if TMA_CEloss:
+                        s2s_attn = F.softmax(s2s_attn_feat, dim=1) # along the mel dimension
+                    else:
+                        s2s_attn = F.softmax(s2s_attn_feat, dim=-1) # along the text dimension
 
                     # get monotonic version 
                     with torch.no_grad():
