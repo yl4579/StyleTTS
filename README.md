@@ -20,6 +20,7 @@ cd StyleTTS
 pip install SoundFile torchaudio munch torch pydub pyyaml librosa git+https://github.com/resemble-ai/monotonic_align.git
 ```
 4. Download and extract the [LJSpeech dataset](https://keithito.com/LJ-Speech-Dataset/), unzip to the data folder and upsample the data to 24 kHz. The vocoder, text aligner and pitch extractor are pre-trained on 24 kHz data, but you can easily change the preprocessing and re-train them using your own preprocessing. I will provide more receipes and pre-trained models later if I have time. If you are willing to help, feel free to work on other preprocessing methods. 
+For LibriTTS, you will need to combine train-clean-360 with train-clean-100 and rename the folder train-clean-460 (see [val_list_libritts.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list_libritts.txt) as an example).
 
 ## Training
 First stage training:
@@ -32,7 +33,7 @@ python train_second.py --config_path ./Configs/config.yml
 ```
 You can run both consecutively and it will train both the first and second stage. The model will be saved in the format "epoch_1st_%05d.pth" and "epoch_2nd_%05d.pth". Checkpoints and Tensorboard logs will be saved at `log_dir`. 
 
-The data list format needs to be `filename.wav|transcription`, see [val_list.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list.txt) as an example. 
+The data list format needs to be `filename.wav|transcription`, see [val_list_libritts.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list_libritts.txt) as an example. 
 
 ## Inference
 
@@ -40,7 +41,7 @@ Please refer to [inference.ipynb](https://github.com/yl4579/StyleTTS/blob/main/D
 
 The pretrained StyleTTS and Hifi-GAN on LJSpeech corpus in 24 kHz can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1aqOExU7NroGHdIVjgkzqRYrK5q_694cj/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1h_h0GFdC6VOiZ-oFDClqy2bVonA1xDiw/view?usp=sharing). Please unzip to `Models` and `Vocoder` respectivey and run each cell in the notebook. You will also need to install [phonemizer](https://github.com/bootphon/phonemizer) to run this inference demo. 
 
-**The pre-trained LibriTTS models and demo are currently wokring in process**. 
+The pretrained StyleTTS and Hifi-GAN on LibriTTS corpus in 24 kHz can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1nm0yB6Y5QWF3FYGfJCwQ6zYNlOAYVSet/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1RDxYknrzncGzusYeVeDo38ErNdczzbik/view?usp=sharing). Please unzip to `Models` and `Vocoder` respectivey and run each cell in the notebook. You will also need to install [phonemizer](https://github.com/bootphon/phonemizer) to run this inference demo. You also need to download test-clean from LibriTTS if you want to run the zero-shot demo. 
 
 ## Preprocessing
 
