@@ -15,9 +15,10 @@ Audio samples: [https://styletts.github.io/](https://styletts.github.io/)
 git clone https://github.com/yl4579/StyleTTS.git
 cd StyleTTS
 ```
-3. Install python requirements: 
+3. Install requirements: 
 ```bash
-pip install SoundFile torchaudio munch torch pydub pyyaml librosa git+https://github.com/resemble-ai/monotonic_align.git
+pip install SoundFile torchaudio munch torch pydub pyyaml librosa phonemizer attrdict git+https://github.com/resemble-ai/monotonic_align.git
+sudo apt-get install espeak-ng
 ```
 4. Download and extract the [LJSpeech dataset](https://keithito.com/LJ-Speech-Dataset/), unzip to the data folder and upsample the data to 24 kHz. The vocoder, text aligner and pitch extractor are pre-trained on 24 kHz data, but you can easily change the preprocessing and re-train them using your own preprocessing. I will provide more receipes and pre-trained models later if I have time. If you are willing to help, feel free to work on other preprocessing methods. 
 For LibriTTS, you will need to combine train-clean-360 with train-clean-100 and rename the folder train-clean-460 (see [val_list_libritts.txt](https://github.com/yl4579/StyleTTS/blob/main/Data/val_list_libritts.txt) as an example).
@@ -37,7 +38,7 @@ The data list format needs to be `filename.wav|transcription`, see [val_list_lib
 
 ## Inference
 
-Please refer to [inference.ipynb](https://github.com/yl4579/StyleTTS/blob/main/Demo/Inference_LJSpeech.ipynb) for details. 
+Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end. But you must copy the models, vocoder, and ljspeech sample(all of which can be found [here](https://drive.google.com/drive/folders/17xEJ-Vx0HkGMhv35fraFvyIas7K3LhJ8?usp=sharing)) to a folder called "styletts" in the root folder of your google drive.
 
 The pretrained StyleTTS and Hifi-GAN on LJSpeech corpus in 24 kHz can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1aqOExU7NroGHdIVjgkzqRYrK5q_694cj/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1h_h0GFdC6VOiZ-oFDClqy2bVonA1xDiw/view?usp=sharing). 
 
