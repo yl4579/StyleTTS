@@ -38,13 +38,15 @@ The data list format needs to be `filename.wav|transcription`, see [val_list_lib
 
 ## Inference
 
-Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end. But you must copy the models, vocoder, and ljspeech sample(all of which can be found [here](https://drive.google.com/drive/folders/17xEJ-Vx0HkGMhv35fraFvyIas7K3LhJ8?usp=sharing)) to a folder called "styletts" in the root folder of your google drive.
+### Colab
+
+Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end. But you must copy the models, vocoder, and ljspeech sample(a snapshot of these files as of 21/04/23 can be found [here](https://drive.google.com/drive/folders/17xEJ-Vx0HkGMhv35fraFvyIas7K3LhJ8?usp=sharing)) to a folder called "styletts" in the root folder of your google drive.
+
+### Pretrained Models
 
 The pretrained StyleTTS and Hifi-GAN on LJSpeech corpus in 24 kHz can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1aqOExU7NroGHdIVjgkzqRYrK5q_694cj/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1h_h0GFdC6VOiZ-oFDClqy2bVonA1xDiw/view?usp=sharing). 
 
-The pretrained StyleTTS and Hifi-GAN on LibriTTS corpus can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1nm0yB6Y5QWF3FYGfJCwQ6zYNlOAYVSet/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1RDxYknrzncGzusYeVeDo38ErNdczzbik/view?usp=sharing). You also need to download test-clean from LibriTTS if you want to run the zero-shot demo. 
-
-Please unzip to `Models` and `Vocoder` respectivey and run each cell in the notebook. You will also need to install [phonemizer](https://github.com/bootphon/phonemizer) to run this inference demo. 
+The pretrained StyleTTS and Hifi-GAN on LibriTTS corpus can be downloaded at [StyleTTS Link](https://drive.google.com/file/d/1nm0yB6Y5QWF3FYGfJCwQ6zYNlOAYVSet/view?usp=sharing) and [Hifi-GAN Link](https://drive.google.com/file/d/1RDxYknrzncGzusYeVeDo38ErNdczzbik/view?usp=sharing). You also need to download test-clean from LibriTTS if you want to run the zero-shot demo.
 
 ## Preprocessing
 
