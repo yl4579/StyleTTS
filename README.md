@@ -40,7 +40,7 @@ The data list format needs to be `filename.wav|transcription`, see [val_list_lib
 
 ### Colab
 
-Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end. But you must copy the models, vocoder, and ljspeech sample(a snapshot of these files as of 21/04/23 can be found [here](https://drive.google.com/drive/folders/17xEJ-Vx0HkGMhv35fraFvyIas7K3LhJ8?usp=sharing)) to a folder called "styletts" in the root folder of your google drive.
+Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end. Before you run the notebook you must copy the models, vocoder, and ljspeech sample(a snapshot of these files as of 21/04/23 can be found [here](https://drive.google.com/drive/folders/17xEJ-Vx0HkGMhv35fraFvyIas7K3LhJ8?usp=sharing)) to a folder called "styletts" in the root folder of your google drive.
 
 ### Pretrained Models
 
