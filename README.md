@@ -40,7 +40,7 @@ The data list format needs to be `filename.wav|transcription`, see [val_list_lib
 
 ### Colab
 
-Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end inference for the LJSpeech model. Adapting for the LibriTTS should be quite easy.
+Please refer to this [colab notebook](https://colab.research.google.com/drive/18xNehSLiClZC3ub3eXiPCOnR4bz3r5Ur?usp=sharing) which runs end to end inference for the LJSpeech model. Adapting for the LibriTTS models should be quite easy. A copy of this notebook is in the demo folder.
 
 ### Pretrained Models
 
