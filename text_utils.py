@@ -1,9 +1,5 @@
 # IPA Phonemizer: https://github.com/bootphon/phonemizer
 
-import os
-import os.path as osp
-import pandas as pd
-
 _pad = "$"
 _punctuation = ';:,.!?¡¿—…"«»“” '
 _letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
