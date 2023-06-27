@@ -31,9 +31,9 @@ def get_data_path_list(train_path=None, val_path=None):
     if val_path is None:
         val_path = "Data/val_list.txt"
 
-    with open(train_path, 'r') as f:
+    with open(train_path, 'r', encoding='utf-8', errors='ignore') as f:
         train_list = f.readlines()
-    with open(val_path, 'r') as f:
+    with open(val_path, 'r', encoding='utf-8', errors='ignore') as f:
         val_list = f.readlines()
 
     return train_list, val_list
