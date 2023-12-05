@@ -152,7 +152,7 @@ def main(config_path):
     TMA_epoch = loss_params.TMA_epoch
     TMA_CEloss = loss_params.TMA_CEloss
 
-    for epoch in range(epochs):
+    for epoch in range(start_epoch, epochs):
         running_loss = 0
         start_time = time.time()
         criterion = nn.L1Loss() 
