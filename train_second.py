@@ -132,6 +132,7 @@ def main(config_path):
     if config.get('pretrained_model', '') != '' and config.get('second_stage_load_pretrained', False):
         model, optimizer, start_epoch, iters = load_checkpoint(model,  optimizer, config['pretrained_model'],
                                     load_only_params=config.get('load_only_params', True))
+        start_epoch = start_epoch + 1
     else:
         start_epoch = 0
         iters = 0
