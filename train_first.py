@@ -1,7 +1,5 @@
 import os
 import os.path as osp
-import re
-import sys
 import yaml
 import shutil
 import numpy as np

@@ -1,12 +1,7 @@
 #coding:utf-8
 
-import os
-import os.path as osp
-
-import copy
 import math
 
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -488,17 +483,6 @@ class AdaLayerNorm(nn.Module):
         x = (1 + gamma) * x + beta
         return x.transpose(1, -1).transpose(-1, -2)
     
-class LinearNorm(torch.nn.Module):
-    def __init__(self, in_dim, out_dim, bias=True, w_init_gain='linear'):
-        super(LinearNorm, self).__init__()
-        self.linear_layer = torch.nn.Linear(in_dim, out_dim, bias=bias)
-
-        torch.nn.init.xavier_uniform_(
-            self.linear_layer.weight,
-            gain=torch.nn.init.calculate_gain(w_init_gain))
-
-    def forward(self, x):
-        return self.linear_layer(x)
 
 class ProsodyPredictor(nn.Module):
 

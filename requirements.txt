@@ -1,0 +1,9 @@
+SoundFile
+torchaudio
+torch
+munch
+pydub
+pyyaml
+librosa
+git+https://github.com/resemble-ai/monotonic_align.git
+click
